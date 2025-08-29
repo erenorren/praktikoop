@@ -24,7 +24,7 @@ $waktu = date("Y-m-d H:i:s");
     <p>Dijalankan di <strong>Docker</strong> di Hugging Face Spaces ✅</p>
   </div>
   </div>
-  <?php echo '<p>Selamat datang dipraktikum PBO semester 3: Sheren</p>'; ?> 
+  <?php echo '<p>Selamat datang dipraktikum PBO semester 3</p>'; ?> 
     <a href="home.php">Go To Home</a>
 </body>
 </html>
