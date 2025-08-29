@@ -1,6 +1,6 @@
 <?php
 // index.php
-$nama = "Peserta Praktik";
+$nama = "Sherenk";
 $waktu = date("Y-m-d H:i:s");
 ?>
 <!DOCTYPE html>
