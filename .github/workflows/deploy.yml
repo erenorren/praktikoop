@@ -1,0 +1,21 @@
+name: Deploy to Hugging Face
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  push-to-hf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Upload to Hugging Face Space
+        uses: huggingface/hub@v0.5.1
+        with:
+          repo-token: ${{ secrets.HFTOKEN }}
+          repo-id: erenorren/praktikoop
+          repo-type: space
