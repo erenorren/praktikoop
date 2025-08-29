@@ -2,20 +2,22 @@ name: Deploy to Hugging Face
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
-  push-to-hf:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Upload to Hugging Face Space
-        uses: huggingface/hub@v0.5.1
-        with:
-          repo-token: ${{ secrets.HFTOKEN }}
-          repo-id: erenorren/praktikoop
-          repo-type: space
+      - name: Push to Hugging Face
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+
+          git remote remove hf || true
+          git remote add hf https://erenorren:${{ secrets.HFTOKEN }}@huggingface.co/spaces/erenorren/praktikoop
+          git push -f hf main
